@@ -186,8 +186,9 @@
 
 .play-again{
   align-self: center;
-  min-width:200px;
+  margin-top:50px;
   width:95%;
+  max-width: 4000px;
 }
 
 /* Online options */
