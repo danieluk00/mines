@@ -6,137 +6,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Minesweeper</title>
   <link rel="shortcut icon" href="data:image/x-icon;" type="image/x-icon">
-  <link rel="stylesheet" href="minesweeper.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> 
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/game.css">
+  <link rel="stylesheet" href="styles/options.css">
 </head>
-<body onload="generateGrid()">
-  <table id="minesweeper">
-    <!-- Dear Student, would you write a bunch of HTML here or generate
-         a big array of tiles, or do it via JavaScript? -->
-    <tr>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-    </tr>
-    <tr>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-    </tr>
-    <tr>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-    </tr>
-    <tr>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-    </tr>
-    <tr>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-    </tr>
-    <tr>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-    </tr>
-    <tr>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-    </tr>
-    <tr>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-    </tr>
-    <tr>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-    </tr>
-    <tr>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-      <td class="unopened"></td>
-    </tr>
-    
-  </table>
+<body>
+
+  <div class="container">
+
+    <header class="header text-center">
+        <h1 class="title">Minesweep</h1>
+        <h3><span class="badge badge-pill badge-danger hidden">Red's turn</span></h3>
+        <h3><span class="badge badge-pill lefttotal hidden" style="margin-right:5px">Red's turn</span><span class="badge badge-pill righttotal hidden" style="margin-left:5px">Red's turn</span></h3>
+    </header>
+
+    <div class="game hidden">
+      <table id="minesweeper">
+      </table>
+    </div>
+
+    <div class="card">
+      <h5 class="card-header">Choose your options</h5>
+      <div class="card-body">
+
+          <p class="expand-options-icon">More options<i class="fas fa-chevron-circle-down fa-check" title="More options"></i></p>
+
+          <div class="hiddenoptions hidden">
+          
+              <div class="numberOfMines option-background expanded-option-group">
+                  <label for="numberOfMines" style="padding-right:15px">Number of mines</label>
+                  <div>
+                      <label class="slider-label" style="padding-right:10px">Less</label>
+                      <input type="range" min="1" max="3" value="2" class="slider" id="skill">
+                      <label class="slider-label" style="padding-left:10px">More</label>
+                  </div>
+              </div>
+                      
+              <div class="boardSize option-background expanded-option-group">
+                <label for="boardSize" style="padding-right:15px">Board size</label>
+                <div>
+                    <label class="slider-label" style="padding-right:10px">Small</label>
+                    <input type="range" min="1" max="3" value="2" class="boardslider" id="skill">
+                    <label class="slider-label" style="padding-left:10px">Large</label>
+                </div>
+            </div>
+
+          </div> 
+
+          <div class="start-button-div">
+              <button type="button" class="btn btn-primary btn-lg start-button" onclick="startGame()">START</button>
+          </div>
+
+      </div>
+
+    </div>
+  </div>
 
   <!-- Including your code -->
-  <script type="text/javascript" src="main.js"></script>
   <script type="text/javascript" src="lib/minesweeper.js"></script>
+  <script type="text/javascript" src="lib/options.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 </html>
